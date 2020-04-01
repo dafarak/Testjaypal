@@ -1,0 +1,66 @@
+<div class="header ">
+  <div  class="row rowdiv">
+   
+    <div  class="col-6">
+
+
+  <h1 style=" font-size:30px; margin-top: .6%; margin-left: 7%; color:blue;"><b>My <span style="color: aliceblue;">Mobs</span></b></h1>  
+</div>
+<div  class="col-3"></div>  
+<div style=" text-align: right;"  class="col-3">
+<input  class="form-control"  [(ngModel)]="searchterm" type="text" placeholder="Search" />
+</div>         
+  
+
+</div> 
+ </div>  
+<!-- header end -->
+<mat-drawer-container class="example-container">
+  <mat-drawer class="inner-container" mode="side" opened>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/1.jpg' >
+    
+    </div>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/2.jpg' >
+    </div>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/6.jpg' >
+    </div>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/4.jpg' >
+    </div>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/5.jpg' >
+    </div>
+    <div class="sidebar-body">
+      <img style="height:17% ; width: 100%;" src='../../assets/img/3.jpg' >
+    </div>
+  </mat-drawer>
+  
+  <mat-drawer-content style="background-color: black;">
+    <div  class="row rowdiv">
+      <div style="margin-top: 5px;" *ngFor="let product of slides|filter:searchterm" class="col-4">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{product.product}} </mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img class="big" (click)= "onclick(product.id,product.img,product.bigparagraph,product.product)" mat-card-image src={{product.img}} alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p style="font-size:1vw;">
+              {{product.paragraph}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+  </div> 
+ 
+</div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
